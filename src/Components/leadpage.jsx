@@ -90,7 +90,7 @@ const LeadPage = () => {
                         </div>
                     </div>
                     <div className="header-contact">
-                        <span className="contact-phone">📞 +91 7909180407 </span>
+                        <span className="contact-phone">📞 +91 7909180407 | +91 8081186611 </span>
                     </div>
                 </div>
             </header>
@@ -231,7 +231,7 @@ const LeadPage = () => {
                                                 id="phone"
                                                 name="phone"
                                                 value={form.phone}
-                                                placeholder="+1 (555) 000-0000"
+                                                placeholder="+91 1234567890"
                                                 required
                                                 onChange={handleChange}
                                             />
