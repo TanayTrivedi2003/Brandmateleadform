@@ -1,5 +1,5 @@
 import "./App.css";
-import LeadPage from "./Components/LeadPage";
+import LeadPage from "./Components/leadpage";
 
 function App() {
   return (

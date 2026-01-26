@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./leadpage.css";
+import "./LeadPage.css";
 import logo from "/brandmate-logo2.png";
 import logo1 from "/brandmate-logo.png";
 
