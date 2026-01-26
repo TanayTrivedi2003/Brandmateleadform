@@ -167,9 +167,10 @@ body {
 
 .hero-subtitle {
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
   max-width: 600px;
   margin: 0 auto 32px;
+  /* border: #10b981 2px solid; */
 }
 
 .trust-badges {
