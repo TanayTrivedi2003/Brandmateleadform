@@ -19,24 +19,62 @@ const LeadPage = () => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setIsSubmitting(true);
+
+    //     // Simulate API call
+    //     await new Promise(resolve => setTimeout(resolve, 1000));
+
+    //     alert("Thanks! Our team will contact you shortly.");
+    //     setIsSubmitting(false);
+    //     // Reset form
+    //     setForm({
+    //         name: "",
+    //         business: "",
+    //         email: "",
+    //         phone: "",
+    //         challenge: "",
+    //         time: "",
+    //     });
+    // };
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        try {
+            await fetch("https://hook.us2.make.com/alawjdm16aqfn0wjcouj8rtsp91fy7fw", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: form.name,
+                    business: form.business,
+                    email: form.email,
+                    phone: form.phone,
+                    challenge: form.challenge,
+                    callTime: form.time, // 👈 Sheet ke column se match
+                }),
+            });
 
-        alert("Thanks! Our team will contact you shortly.");
-        setIsSubmitting(false);
-        // Reset form
-        setForm({
-            name: "",
-            business: "",
-            email: "",
-            phone: "",
-            challenge: "",
-            time: "",
-        });
+            alert("Thanks! Our team will contact you shortly.");
+
+            setForm({
+                name: "",
+                business: "",
+                email: "",
+                phone: "",
+                challenge: "",
+                time: "",
+            });
+
+        } catch (error) {
+            console.error("Webhook error:", error);
+            alert("Something went wrong. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
