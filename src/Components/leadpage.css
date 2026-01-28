@@ -94,6 +94,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 6px;
 }
 
 .contact-phone {
@@ -105,7 +106,9 @@ body {
   font-size: clamp(12px, 3.5vw, 14px);
   text-align: center;
   line-height: 1.4;
-  white-space: nowrap;
+
+  white-space: normal; /* ❗ nowrap hatao */
+  word-break: break-word;
 }
 
 /* ===== HERO ===== */

@@ -135,7 +135,7 @@ const LeadPage = () => {
                         </div>
                     </div>
                     <div className="header-contact">
-                        <span className="contact-phone">📞 +91 7909180407 | +91 8081186611 </span>
+                        <span className="contact-phone">📞 +91 7909180407 <br /> +91 8081186611 </span>
                     </div>
                 </div>
             </header>
