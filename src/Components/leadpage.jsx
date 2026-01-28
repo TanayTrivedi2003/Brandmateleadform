@@ -126,19 +126,30 @@ const LeadPage = () => {
         <div className="lead-page">
             {/* ================= HEADER ================= */}
             <header className="header">
-                <div className="container">
-                    <div className="brand">
+                <div className="container header-inner">
+
+                    {/* LEFT: BRAND */}
+                    <div className="brand ">
                         <img src={logo} alt="Brand Mate Digital" className="logo" />
                         <div className="brand-text">
-                            {/* <span className="brand-name">Brand Mate Digital</span> */}
+
                             <span className="brand-tagline">Growth & Digital Consulting</span>
                         </div>
                     </div>
+
+                    {/* RIGHT: CONTACT */}
                     <div className="header-contact">
-                        <span className="contact-phone">📞 +91 7909180407 <br /> +91 8081186611 </span>
+                        <span className="contact-phone">
+                            +91 7909180407
+                        </span>
+                        <span className="contact-phone">
+                            +91 8081186611
+                        </span>
                     </div>
+
                 </div>
             </header>
+
 
             {/* ================= HERO ================= */}
             <section className="hero">
@@ -404,23 +415,64 @@ const LeadPage = () => {
             {/* ================= TESTIMONIAL ================= */}
             <section className="testimonial-section">
                 <div className="container">
-                    <div className="testimonial-card">
-                        <div className="quote-icon">❝</div>
-                        <blockquote>
-                            "Brand Mate Digital transformed our digital strategy completely.
-                            Within 3 months, we saw a 240% increase in qualified leads.
-                            Their approach is both strategic and practical."
-                        </blockquote>
-                        <div className="quote-icon">❞</div>
-                        <div className="testimonial-author">
-                            <div className="author-info">
-                                <strong>Vikalp Srivastava</strong>
-                                <span>CEO, BrandMate Digital</span>
+                    <div className="testimonial-grid">
+
+                        <div className="testimonial-card">
+                            <div className="quote-icon">❝</div>
+                            <blockquote>
+                                “Brand Mate Digital completely transformed our digital marketing strategy.
+                                As a business owner, working with one of the best marketing agencies gave us clarity, confidence, and real execution.
+                                Within just 3 months, we achieved 240% growth in qualified leads, delivering some of the best results we’ve seen so far.
+                                Their strategic approach, transparency, and performance-driven mindset truly set Brand Mate Digital apart.”
+                            </blockquote>
+                            <div className="testimonial-author">
+                                <strong>Amit Vikram Dubey</strong>
+                                <span>CEO, Smelita Aromas</span>
                             </div>
                         </div>
+
+                        <div className="testimonial-card">
+                            <div className="quote-icon">❝</div>
+                            <blockquote>
+                                “Brand Mate Digital’s strategic clarity and execution enabled us to scale faster than anticipated.
+                                The consultation alone delivered powerful direction and a roadmap we could implement instantly.”
+                            </blockquote>
+                            <div className="testimonial-author">
+                                <strong>Sahil Chauhan</strong>
+                                <span>Founder, Verelios Labs</span>
+                            </div>
+                        </div>
+
+                        <div className="testimonial-card">
+                            <div className="quote-icon">❝</div>
+                            <blockquote>
+                                “Working with Brand Mate Digital was a game-changer for our business.
+                                Their data-driven strategy, honest guidance, and clear execution delivered measurable growth in a very short time.
+                                We finally saw real traction, consistent leads, and results that actually mattered.”
+                            </blockquote>
+                            <div className="testimonial-author">
+                                <strong>Kamlesh Srivastava</strong>
+                                <span>Founder, Madvantage Health Care </span>
+                            </div>
+                        </div>
+
+                        <div className="testimonial-card">
+                            <div className="quote-icon">❝</div>
+                            <blockquote>
+                                “As a trading business owner, clarity and trust matter the most to us.
+                                Brand Mate Digital helped us build a strong digital presence and a structured lead system that attracted serious, high-intent clients.
+                                Their strategic guidance and execution brought consistency and professionalism to our growth journey.”
+                            </blockquote>
+                            <div className="testimonial-author">
+                                <strong>Ashish Paliwal</strong>
+                                <span>Founder & CEO, Profinity</span>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
+
 
             {/* ================= CLIENTS ================= */}
             <section className="clients-section">
@@ -471,7 +523,7 @@ const LeadPage = () => {
                         <div className="footer-brand">
                             <img src={logo1} alt="Brand Mate Digital" className="footer-logo" />
                             <div>
-                                <h4>Brand Mate Digital</h4>
+
                                 <p>Growth-focused digital consulting for modern businesses</p>
                             </div>
                         </div>
@@ -480,11 +532,11 @@ const LeadPage = () => {
                         <div className="footer-address">
                             <h5>Office Address</h5>
                             <p>
-                                127/T/25. <br />
-                                Vinobha Nagar <br />
-                                Kidwai Nagar, Kanpur <br />
-                                ,Uttar Pradesh, 208014 <br />
-                                India
+                                Kanpur Nagar, UP <br />
+                                Gurugao, Haryana <br />
+                                Bangalore, Karnataka<br />
+
+
                             </p>
                         </div>
 
