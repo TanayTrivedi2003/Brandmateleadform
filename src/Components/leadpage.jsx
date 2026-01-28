@@ -10,14 +10,27 @@ const LeadPage = () => {
         email: "",
         phone: "",
         challenge: "",
+        otherChallenge: "",
         time: "",
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [error, setError] = useState("");
+
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
+
+
+    const isValidEmail = (email) =>
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    const isValidPhone = (phone) =>
+        /^[0-9]{10}$/.test(phone);
+
 
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
@@ -40,25 +53,55 @@ const LeadPage = () => {
     // };
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (hasSubmitted) return;
+
+        if (
+            !form.name ||
+            !form.business ||
+            !form.email ||
+            !form.phone ||
+            !form.challenge ||
+            !form.time ||
+            (form.challenge === "other" && !form.otherChallenge)
+        ) {
+            return;
+        }
+
+        // if (!isValidEmail(form.email)) return;
+        // if (!isValidPhone(form.phone)) return;
+        if (!isValidEmail(form.email)) {
+            setError("Please enter a valid email address.");
+            return;
+        }
+
+        if (!isValidPhone(form.phone)) {
+            setError("Please enter a valid 10-digit phone number.");
+            return;
+        }
+
+
         setIsSubmitting(true);
+        setHasSubmitted(true);
 
         try {
             await fetch("https://hook.us2.make.com/alawjdm16aqfn0wjcouj8rtsp91fy7fw", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     name: form.name,
                     business: form.business,
                     email: form.email,
                     phone: form.phone,
-                    challenge: form.challenge,
-                    callTime: form.time, // 👈 Sheet ke column se match
+                    challenge:
+                        form.challenge === "other"
+                            ? form.otherChallenge
+                            : form.challenge,
+                    callTime: form.time,
                 }),
             });
 
-            alert("Thanks! Our team will contact you shortly.");
+            setShowSuccess(true);
 
             setForm({
                 name: "",
@@ -66,16 +109,18 @@ const LeadPage = () => {
                 email: "",
                 phone: "",
                 challenge: "",
+                otherChallenge: "",
                 time: "",
             });
 
         } catch (error) {
             console.error("Webhook error:", error);
-            alert("Something went wrong. Please try again.");
+            setHasSubmitted(false);
         } finally {
             setIsSubmitting(false);
         }
     };
+
 
     return (
         <div className="lead-page">
@@ -231,10 +276,14 @@ const LeadPage = () => {
                                                 id="phone"
                                                 name="phone"
                                                 value={form.phone}
-                                                placeholder="+91 1234567890"
+                                                maxLength={10}
                                                 required
-                                                onChange={handleChange}
+                                                onChange={(e) => {
+                                                    const value = e.target.value.replace(/\D/g, "");
+                                                    setForm({ ...form, phone: value });
+                                                }}
                                             />
+
                                         </div>
                                     </div>
 
@@ -254,6 +303,18 @@ const LeadPage = () => {
                                             <option value="automation">Automation / CRM Setup</option>
                                             <option value="other">Other Challenge</option>
                                         </select>
+                                        {form.challenge === "other" && (
+                                            <div className="form-group">
+                                                <label>Please specify *</label>
+                                                <input
+                                                    name="otherChallenge"
+                                                    value={form.otherChallenge}
+                                                    required
+                                                    onChange={handleChange}
+                                                />
+                                            </div>
+                                        )}
+
                                     </div>
 
                                     <div className="form-group">
@@ -274,16 +335,20 @@ const LeadPage = () => {
                                     <button
                                         type="submit"
                                         className="submit-btn"
-                                        disabled={isSubmitting}
+                                        disabled={isSubmitting || hasSubmitted}
                                     >
+
                                         {isSubmitting ? (
                                             <>
                                                 <span className="spinner"></span>
                                                 Processing...
                                             </>
+                                        ) : hasSubmitted ? (
+                                            "Already Submitted"
                                         ) : (
                                             "Book Your Free Strategy Call"
                                         )}
+
                                     </button>
 
                                     <p className="form-footer">
@@ -296,6 +361,21 @@ const LeadPage = () => {
                     </div>
                 </div>
             </main>
+            {showSuccess && (
+                <div className="success-overlay">
+                    <div className="success-modal">
+                        <h2>🎉 Congratulations!</h2>
+                        <p>
+                            Your form has been submitted successfully.<br />
+                            Our team will contact you within 24 hours.
+                        </p>
+                        <button onClick={() => setShowSuccess(false)}>
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
+
 
             {/* ================= STATS ================= */}
             <section className="stats-section">
@@ -386,29 +466,28 @@ const LeadPage = () => {
             <footer className="footer">
                 <div className="container">
                     <div className="footer-content">
+
+                        {/* BRAND */}
                         <div className="footer-brand">
                             <img src={logo1} alt="Brand Mate Digital" className="footer-logo" />
                             <div>
-                                <h4></h4>
+                                <h4>Brand Mate Digital</h4>
                                 <p>Growth-focused digital consulting for modern businesses</p>
                             </div>
                         </div>
 
-                        {/* <div className="footer-links">
-                            <div className="footer-column">
-                                <h5>Quick Links</h5>
-                                <a href="#">Services</a>
-                                <a href="#">Case Studies</a>
-                                <a href="#">About Us</a>
-                                <a href="#">Contact</a>
-                            </div>
-                            <div className="footer-column">
-                                <h5>Legal</h5>
-                                <a href="#">Privacy Policy</a>
-                                <a href="#">Terms of Service</a>
-                                <a href="#">Cookie Policy</a>
-                            </div>
-                        </div> */}
+                        {/* OFFICE ADDRESS */}
+                        <div className="footer-address">
+                            <h5>Office Address</h5>
+                            <p>
+                                127/T/25. <br />
+                                Vinobha Nagar <br />
+                                Kidwai Nagar, Kanpur <br />
+                                ,Uttar Pradesh, 208014 <br />
+                                India
+                            </p>
+                        </div>
+
                     </div>
 
                     <div className="footer-bottom">
@@ -421,6 +500,7 @@ const LeadPage = () => {
                     </div>
                 </div>
             </footer>
+
         </div>
     );
 };
