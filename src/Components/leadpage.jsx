@@ -2,7 +2,13 @@ import { useState } from "react";
 import "./leadpage.css";
 import logo from "/brandmate-logo2.png";
 import logo1 from "/brandmate-logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faLinkedinIn,
 
+    faFacebookF,
+    faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 const LeadPage = () => {
     const [form, setForm] = useState({
         name: "",
@@ -543,13 +549,23 @@ const LeadPage = () => {
 
                     </div>
 
+
                     <div className="footer-bottom">
                         <p>© {new Date().getFullYear()} Brand Mate Digital. All rights reserved.</p>
+
                         <div className="social-links">
-                            <a href="#">LinkedIn</a>
-                            <a href="#">Twitter</a>
-                            <a href="#">Instagram</a>
+                            <a href="https://www.linkedin.com/company/brandmate-digital/" className="social-icon linkedin">
+                                <FontAwesomeIcon icon={faLinkedinIn} />
+                            </a>
+                            <a href="https://www.instagram.com/thebrandmate.digital/" className="social-icon instagram">
+                                <FontAwesomeIcon icon={faInstagram} />
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61578585032186" className="social-icon facebook">
+                                <FontAwesomeIcon icon={faFacebookF} />
+                            </a>
+
                         </div>
+
                     </div>
                 </div>
             </footer>
