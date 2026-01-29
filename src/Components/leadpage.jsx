@@ -38,25 +38,7 @@ const LeadPage = () => {
         /^[0-9]{10}$/.test(phone);
 
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     setIsSubmitting(true);
 
-    //     // Simulate API call
-    //     await new Promise(resolve => setTimeout(resolve, 1000));
-
-    //     alert("Thanks! Our team will contact you shortly.");
-    //     setIsSubmitting(false);
-    //     // Reset form
-    //     setForm({
-    //         name: "",
-    //         business: "",
-    //         email: "",
-    //         phone: "",
-    //         challenge: "",
-    //         time: "",
-    //     });
-    // };
     const handleSubmit = async (e) => {
         e.preventDefault();
 
