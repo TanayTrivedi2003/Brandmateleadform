@@ -140,7 +140,7 @@ const LeadPage = () => {
                     {/* RIGHT: CONTACT */}
                     <div className="header-contact">
                         <span className="contact-phone">
-                            +91 7909180407
+                            +91 7309180407
                         </span>
                         <span className="contact-phone">
                             +91 8081186611
@@ -535,6 +535,7 @@ const LeadPage = () => {
                                 Kanpur Nagar, UP <br />
                                 Gurugao, Haryana <br />
                                 Bangalore, Karnataka<br />
+                                Mumbai, Maharashtra<br />
 
 
                             </p>
