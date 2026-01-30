@@ -523,6 +523,91 @@ const LeadPage = () => {
                 </div>
             </section >
 
+
+
+            {/* ================= CLIENT TESTIMONIALS ================= */}
+            <section className="py-24 bg-[#0B0F1A] border-t border-white/10">
+                <div className="max-w-7xl mx-auto px-6">
+
+                    {/* Heading */}
+                    <div className="text-center max-w-3xl mx-auto">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white">
+                            What Our <span className="text-blue-500">Clients Say</span>
+                        </h2>
+                        <p className="mt-4 text-gray-300 text-lg">
+                            Honest feedback from business owners across different services.
+                        </p>
+                    </div>
+
+                    {/* Testimonials Grid */}
+                    <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                        {/* SOCIAL MEDIA MARKETING */}
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                            <p className="text-gray-300 text-sm leading-relaxed">
+                                “Our social media presence was inconsistent and not driving any real engagement.
+                                Brand Mate Digital completely changed the game for us.
+                                From content strategy to creatives and posting structure,
+                                everything became more professional and growth-focused.
+                                Within a few weeks, we started seeing better engagement,
+                                brand recall, and genuine inbound queries from social platforms.”
+                            </p>
+                            <div className="mt-6">
+                                <p className="font-semibold text-white">Amit Vikram Dubey</p>
+                                <p className="text-sm text-gray-400">Founder, Smelita Aromas</p>
+                            </div>
+                        </div>
+
+                        {/* DIGITAL MARKETING */}
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                            <p className="text-gray-300 text-sm leading-relaxed">
+                                “Brand Mate Digital’s digital marketing strategy gave us clarity we were missing for a long time.
+                                Their performance-focused approach, targeting, and funnel planning
+                                helped us move away from guesswork.
+                                The results were visible not just in leads,
+                                but in the quality of inquiries and conversion-ready prospects.”
+                            </p>
+                            <div className="mt-6">
+                                <p className="font-semibold text-white">Sahil Chauhan</p>
+                                <p className="text-sm text-gray-400">Founder, Verelios Labs</p>
+                            </div>
+                        </div>
+
+                        {/* WEBSITE DEVELOPMENT */}
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                            <p className="text-gray-300 text-sm leading-relaxed">
+                                “Our website earlier looked outdated and failed to communicate trust.
+                                Brand Mate Digital redesigned our website with a clear structure,
+                                better user flow, and conversion-focused layout.
+                                After the new website launch, we noticed improved credibility,
+                                longer user sessions, and more serious inquiries from clients.”
+                            </p>
+                            <div className="mt-6">
+                                <p className="font-semibold text-white">Kamlesh Srivastava</p>
+                                <p className="text-sm text-gray-400">Founder, Medvantage Healthcare</p>
+                            </div>
+                        </div>
+
+                        {/* AFFILIATE / LEAD PARTNERSHIP */}
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                            <p className="text-gray-300 text-sm leading-relaxed">
+                                “As a trading business, consistency and trust are extremely important.
+                                Brand Mate Digital helped us set up a structured affiliate
+                                and lead partnership model that brought in high-intent clients.
+                                Their transparency, reporting, and execution
+                                made the entire process smooth and reliable for long-term growth.”
+                            </p>
+                            <div className="mt-6">
+                                <p className="font-semibold text-white">Ashish Paliwal</p>
+                                <p className="text-sm text-gray-400">Founder, Profinity</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
             {/* ================= FOOTER ================= */}
             {/* ================= FOOTER ================= */}
             <footer className="bg-[#0B0F1A] border-t border-white/10 pt-16 pb-8">
