@@ -134,11 +134,14 @@ const LeadPage = () => {
                 <div className="max-w-4xl mx-auto text-center px-6">
                     <button
                         onClick={scrollToForm}
-                        className="inline-block bg-blue-600 hover:bg-blue-700 transition
-             text-white px-5 py-2 rounded-full text-sm font-semibold"
+                        className="inline-block bg-blue-600 hover:bg-blue-700
+             text-white px-5 py-2 rounded-full text-sm font-semibold
+             animate-bounce"
                     >
                         FREE CONSULTATION
                     </button>
+
+
 
 
                     <h1 className="mt-6 text-4xl md:text-5xl font-bold leading-tight">
@@ -216,11 +219,15 @@ const LeadPage = () => {
                         {/* CTA Button */}
                         <button
                             onClick={scrollToForm}
-                            className="w-full sm:w-auto mt-4 px-10 py-4 bg-blue-600 hover:bg-blue-700 transition
-                             rounded-xl font-semibold text-white text-lg shadow-lg shadow-blue-600/30"
+                            className="w-full sm:w-auto mt-4 px-10 py-4
+             bg-blue-600 hover:bg-blue-700
+             rounded-xl font-semibold text-white text-lg
+             shadow-lg shadow-blue-600/30
+             animate-bounce"
                         >
                             Grab Your FREE Strategy Call
                         </button>
+
 
                     </div>
                 </div>
@@ -294,12 +301,16 @@ const LeadPage = () => {
                     <div className="mt-16 flex justify-center">
                         <button
                             onClick={scrollToForm}
-                            className="w-full max-w-2xl bg-blue-600 hover:bg-blue-700 transition
+                            className="w-full max-w-2xl bg-blue-600 hover:bg-blue-700
              text-white text-lg font-semibold py-4 rounded-xl
-             shadow-lg shadow-blue-600/30"
+             shadow-lg shadow-blue-600/30
+             animate-bounce
+             hover:scale-105 active:scale-95
+             transition-transform"
                         >
                             Grab Your FREE 30-Minute Strategy Call
                         </button>
+
 
                     </div>
 
@@ -495,12 +506,13 @@ const LeadPage = () => {
                             <button
                                 type="submit"
                                 disabled={isSubmitting || hasSubmitted}
-                                className={`w-full font-semibold py-3 rounded-lg transition-all duration-300
-    ${hasSubmitted
+                                className={`w-full font-semibold py-3 rounded-lg
+  transition-all duration-300
+  ${hasSubmitted
                                         ? "bg-green-600 text-white"
-                                        : "bg-blue-600 hover:bg-blue-700 text-white"}
-    ${isSubmitting ? "cursor-not-allowed opacity-80" : ""}
-  `}
+                                        : "bg-blue-600 hover:bg-blue-700 text-white animate-bounce hover:scale-105 active:scale-95"}
+  ${isSubmitting ? "cursor-not-allowed opacity-80" : ""}
+`}
                             >
                                 {isSubmitting && (
                                     <span className="inline-flex items-center gap-2">
@@ -517,6 +529,7 @@ const LeadPage = () => {
 
                                 {!isSubmitting && !hasSubmitted && "Book Free Strategy Call"}
                             </button>
+
 
                         </form>
                     </div>
@@ -640,35 +653,75 @@ const LeadPage = () => {
                         {/* SOCIAL */}
                         <div>
                             <h4 className="text-white font-semibold mb-4">Connect With Us</h4>
-                            <div className="flex gap-4 text-xl">
+
+                            {/* Social Icons */}
+                            <div className="flex gap-4 text-xl justify-start mb-4">
                                 <a
                                     href="https://www.linkedin.com/company/brandmate-digital"
-                                    className="w-10 h-10 flex items-center justify-center rounded-full
-                       bg-white/5 border border-white/10
-                       hover:bg-blue-600 hover:text-white transition"
+                                    target="_blank"
+                                    className="w-11 h-11 flex items-center justify-center rounded-full
+      bg-white/5 border border-white/10 text-white
+      hover:bg-[#0A66C2] hover:shadow-lg hover:shadow-[#0A66C2]/40
+      animate-bounce hover:scale-110 active:scale-95
+      transition-all duration-300"
                                 >
                                     <FontAwesomeIcon icon={faLinkedinIn} />
                                 </a>
 
                                 <a
                                     href="https://www.instagram.com/thebrandmate.digital/"
-                                    className="w-10 h-10 flex items-center justify-center rounded-full
-                       bg-white/5 border border-white/10
-                       hover:bg-blue-600 hover:text-white transition"
+                                    target="_blank"
+                                    className="w-11 h-11 flex items-center justify-center rounded-full
+      bg-white/5 border border-white/10 text-white
+      hover:bg-gradient-to-tr from-pink-500 via-purple-500 to-yellow-500
+      hover:shadow-lg hover:shadow-pink-500/40
+      animate-bounce [animation-delay:0.15s]
+      hover:scale-110 active:scale-95
+      transition-all duration-300"
                                 >
                                     <FontAwesomeIcon icon={faInstagram} />
                                 </a>
 
                                 <a
                                     href="https://www.facebook.com/profile.php?id=61578585032186"
-                                    className="w-10 h-10 flex items-center justify-center rounded-full
-                       bg-white/5 border border-white/10
-                       hover:bg-blue-600 hover:text-white transition"
+                                    target="_blank"
+                                    className="w-11 h-11 flex items-center justify-center rounded-full
+      bg-white/5 border border-white/10 text-white
+      hover:bg-[#1877F2] hover:shadow-lg hover:shadow-[#1877F2]/40
+      animate-bounce [animation-delay:0.3s]
+      hover:scale-110 active:scale-95
+      transition-all duration-300"
                                 >
                                     <FontAwesomeIcon icon={faFacebookF} />
                                 </a>
                             </div>
+
+                            {/* Contact Info */}
+                            <div className="space-y-1 text-sm text-gray-400">
+                                <a
+                                    href="tel:+917309180407"
+                                    className="block hover:text-blue-500 transition"
+                                >
+                                    📞 +91 73091 80407
+                                </a>
+
+                                <a
+                                    href="tel:+918081186611"
+                                    className="block hover:text-blue-500 transition"
+                                >
+                                    📞 +91 80811 86611
+                                </a>
+
+                                <a
+                                    href="mailto:info@brandmatedigital.com"
+                                    className="block hover:text-blue-500 transition"
+                                >
+                                    📧 info@brandmatedigital.com
+                                </a>
+                            </div>
                         </div>
+
+
 
                     </div>
 
