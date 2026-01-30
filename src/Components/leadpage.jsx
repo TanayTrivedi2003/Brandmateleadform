@@ -561,7 +561,7 @@
 
 
 import { useState } from "react";
-import logo from "/brandmate-logo2.png";
+import logo from "/brandmate-logo.png";
 import logo1 from "/brandmate-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
