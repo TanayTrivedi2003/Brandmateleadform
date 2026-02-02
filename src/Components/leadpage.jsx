@@ -15,8 +15,51 @@ import {
 
 const LeadPage = () => {
 
+
+
+
+    const formRef = useRef(null);
+
+    const scrollToForm = () => {
+        formRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+    };
+
+    const [form, setForm] = useState({
+        name: "",
+        business: "",
+        email: "",
+        phone: "",
+        challenge: "",
+        otherChallenge: "",
+        time: "",
+    });
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [error, setError] = useState("");
+    const [showFormModal, setShowFormModal] = useState(false);
     const [showStickyBanner, setShowStickyBanner] = useState(false);
+
+
+
+
+
     const END_DATE = new Date("2026-02-15T23:59:59");
+    useEffect(() => {
+        if (showFormModal) {
+            setShowStickyBanner(false);
+        }
+    }, [showFormModal]);
+
+    useEffect(() => {
+        document.body.style.overflow = showFormModal ? "hidden" : "auto";
+    }, [showFormModal]);
+
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -45,34 +88,6 @@ const LeadPage = () => {
 
         return () => clearInterval(timer);
     }, []);
-
-
-    const formRef = useRef(null);
-
-    const scrollToForm = () => {
-        formRef.current?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-        });
-    };
-
-    const [form, setForm] = useState({
-        name: "",
-        business: "",
-        email: "",
-        phone: "",
-        challenge: "",
-        otherChallenge: "",
-        time: "",
-    });
-
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [hasSubmitted, setHasSubmitted] = useState(false);
-    const [showSuccess, setShowSuccess] = useState(false);
-    const [error, setError] = useState("");
-    const [showFormModal, setShowFormModal] = useState(false);
-
-
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -187,8 +202,10 @@ const LeadPage = () => {
                 <img
                     src="/hero.png"
                     alt="Business Growth Strategy"
-                    className="w-full h-[380px] object-cover"
+                    className="w-full object-cover
+             h-[200px] sm:h-[250px] md:h-[300px] lg:h-[380px]"
                 />
+
             </section>
 
 
@@ -810,6 +827,8 @@ const LeadPage = () => {
             )}
 
 
+
+
             {/* ================= FOOTER ================= */}
             {/* ================= FOOTER ================= */}
             <footer className="bg-[#0B0F1A] border-t border-white/10 pt-16 pb-8">
@@ -967,45 +986,7 @@ const LeadPage = () => {
                 </div>
             </div>
 
-            <div
-                className={`fixed bottom-0 left-0 w-full z-50
-    transition-transform duration-500 ease-in-out
-    ${showStickyBanner ? "translate-y-0" : "translate-y-full"}
-  `}
-            >
-                <div className="max-w-7xl mx-auto px-4 pb-4">
-                    <div className="bg-white rounded-2xl shadow-2xl border border-black/10
-      flex flex-col md:flex-row items-center justify-between
-      gap-4 px-6 py-4">
 
-                        {/* LEFT */}
-                        <div className="flex items-center gap-4">
-                            <div className="text-3xl font-extrabold text-black">
-                                FREE <span className="line-through text-red-500 ml-2">₹1999</span>
-                            </div>
-                            <div className="text-sm text-gray-700">
-                                Offer Ends in <span className="font-semibold text-black">
-                                    {formatTime(timeLeft)}
-                                </span>
-                            </div>
-                        </div>
-
-                        {/* RIGHT CTA */}
-                        <button
-                            onClick={() => setShowFormModal(true)}
-                            className="w-full md:w-auto px-8 py-3
-rounded-xl font-semibold text-white
-bg-blue-600 hover:bg-blue-700
-shadow-lg shadow-blue-600/30
-hover:scale-105 active:scale-95
-transition-all duration-300"
-                        >
-                            Register Now
-                        </button>
-
-                    </div>
-                </div>
-            </div>
 
 
         </div >
