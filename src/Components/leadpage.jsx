@@ -277,7 +277,7 @@ const LeadPage = () => {
                     <div className="space-y-6">
 
                         {/* Info cards */}
-                        <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {[
                                 { title: "Date", value: "01 February 2025 - 05 February 2025" },
                                 { title: "Time", value: "10:00 AM to 06:00 PM" },
