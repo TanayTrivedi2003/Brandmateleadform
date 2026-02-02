@@ -47,8 +47,10 @@ const LeadPage = () => {
 
 
 
+    // 7 Feb 2026, 11:59:59 PM (IST safe)
+    const END_DATE = new Date(2026, 1, 5, 23, 59, 59);
 
-    const END_DATE = new Date("2026-02-15T23:59:59");
+
     useEffect(() => {
         if (showFormModal) {
             setShowStickyBanner(false);
@@ -277,7 +279,7 @@ const LeadPage = () => {
                         {/* Info cards */}
                         <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
                             {[
-                                { title: "Date", value: "1 February 2025 - 15 February 2025" },
+                                { title: "Date", value: "01 February 2025 - 05 February 2025" },
                                 { title: "Time", value: "10:00 AM to 06:00 PM" },
                                 { title: "Language", value: "Hindi / English" },
                                 { title: "Duration", value: "30 Minutes" },
@@ -975,7 +977,7 @@ const LeadPage = () => {
                             onClick={() => setShowFormModal(true)}
                             className="w-full md:w-auto px-8 py-3
           rounded-xl font-semibold text-black
-          bg-gradient-to-r from-yellow-400 to-orange-500
+          bg-gradient-to-r from- bg-blue-500 to-blue-600
           hover:scale-105 active:scale-95
           transition-transform"
                         >
