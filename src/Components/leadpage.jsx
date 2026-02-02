@@ -205,7 +205,7 @@ const LeadPage = () => {
                     src="/hero.png"
                     alt="Business Growth Strategy"
                     className="w-full object-cover
-             h-[200px] sm:h-[250px] md:h-[300px] lg:h-[380px]"
+             h-[200px] sm:h-[220px] md:h-[300px] lg:h-[380px]"
                 />
 
             </section>
