@@ -1,7 +1,7 @@
 import logo from "/brandmate-logo.png";
 import logo1 from "/brandmate-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import {
     faLinkedinIn,
@@ -15,7 +15,36 @@ import {
 
 const LeadPage = () => {
 
+    const [showStickyBanner, setShowStickyBanner] = useState(false);
+    const END_DATE = new Date("2026-02-15T23:59:59");
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowStickyBanner(true);
+            } else {
+                setShowStickyBanner(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+
+    const [timeLeft, setTimeLeft] = useState(() => {
+        const diff = END_DATE - new Date();
+        return diff > 0 ? diff : 0;
+    });
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            const diff = END_DATE - new Date();
+            setTimeLeft(diff > 0 ? diff : 0);
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, []);
 
 
     const formRef = useRef(null);
@@ -42,6 +71,8 @@ const LeadPage = () => {
     const [showSuccess, setShowSuccess] = useState(false);
     const [error, setError] = useState("");
     const [showFormModal, setShowFormModal] = useState(false);
+
+
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -116,6 +147,20 @@ const LeadPage = () => {
         }
     };
 
+
+    const formatTime = (ms) => {
+        if (!ms || ms <= 0) return "0d 0h 0m 0s";
+
+        const totalSeconds = Math.floor(ms / 1000);
+
+        const days = Math.floor(totalSeconds / (3600 * 24));
+        const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    };
+
     return (
         <div className="bg-[#0B0F1A] text-white min-h-screen">
 
@@ -142,7 +187,7 @@ const LeadPage = () => {
                 <img
                     src="/hero.png"
                     alt="Business Growth Strategy"
-                    className="w-full h-[420px] object-cover"
+                    className="w-full h-[380px] object-cover"
                 />
             </section>
 
@@ -881,6 +926,86 @@ const LeadPage = () => {
 
                 </div>
             </footer>
+
+            <div
+                className={`fixed bottom-0 left-0 w-full z-50
+    transition-transform duration-500 ease-in-out
+    ${showStickyBanner ? "translate-y-0" : "translate-y-full"}
+  `}
+            >
+                <div className="max-w-7xl mx-auto px-4 pb-4">
+                    <div className="bg-white rounded-2xl shadow-2xl border border-black/10
+      flex flex-col md:flex-row items-center justify-between
+      gap-4 px-6 py-4">
+
+                        {/* LEFT */}
+                        <div className="flex items-center gap-4">
+                            <div className="text-3xl font-extrabold text-black">
+                                FREE <span className="line-through text-red-500 ml-2">₹1999</span>
+                            </div>
+                            <div className="text-sm text-gray-700">
+                                Offer Ends in <span className="font-semibold text-black">
+                                    {formatTime(timeLeft)}
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* RIGHT CTA */}
+                        <button
+                            onClick={() => setShowFormModal(true)}
+                            className="w-full md:w-auto px-8 py-3
+          rounded-xl font-semibold text-black
+          bg-gradient-to-r from-yellow-400 to-orange-500
+          hover:scale-105 active:scale-95
+          transition-transform"
+                        >
+                            Register Now
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <div
+                className={`fixed bottom-0 left-0 w-full z-50
+    transition-transform duration-500 ease-in-out
+    ${showStickyBanner ? "translate-y-0" : "translate-y-full"}
+  `}
+            >
+                <div className="max-w-7xl mx-auto px-4 pb-4">
+                    <div className="bg-white rounded-2xl shadow-2xl border border-black/10
+      flex flex-col md:flex-row items-center justify-between
+      gap-4 px-6 py-4">
+
+                        {/* LEFT */}
+                        <div className="flex items-center gap-4">
+                            <div className="text-3xl font-extrabold text-black">
+                                FREE <span className="line-through text-red-500 ml-2">₹1999</span>
+                            </div>
+                            <div className="text-sm text-gray-700">
+                                Offer Ends in <span className="font-semibold text-black">
+                                    {formatTime(timeLeft)}
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* RIGHT CTA */}
+                        <button
+                            onClick={() => setShowFormModal(true)}
+                            className="w-full md:w-auto px-8 py-3
+rounded-xl font-semibold text-white
+bg-blue-600 hover:bg-blue-700
+shadow-lg shadow-blue-600/30
+hover:scale-105 active:scale-95
+transition-all duration-300"
+                        >
+                            Register Now
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
 
         </div >
     );
