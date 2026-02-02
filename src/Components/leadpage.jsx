@@ -41,6 +41,7 @@ const LeadPage = () => {
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     const [error, setError] = useState("");
+    const [showFormModal, setShowFormModal] = useState(false);
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -120,20 +121,38 @@ const LeadPage = () => {
 
             {/* ================= HEADER ================= */}
             <header className="border-b border-white/10">
-                <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                    <img src={logo} className="h-10" />
-                    <div className="text-sm text-gray-300 space-x-4 hidden md:block">
+                <div className="max-w-7xl mx-auto px-6 py-4 relative flex items-center">
+
+                    {/* Logo - Center */}
+                    <div className="absolute left-1/2 -translate-x-1/2 mt-5">
+                        <img src={logo} className="h-10" alt="Logo" />
+                    </div>
+
+                    {/* Contact Info - Right */}
+                    <div className="ml-auto text-sm text-gray-300 space-x-4 hidden md:block">
                         <span>+91 7309180407</span>
                         <span>+91 8081186611</span>
                     </div>
+
                 </div>
             </header>
+
+
+            <section className="w-full mt-10 md:mt-16">
+                <img
+                    src="/hero.png"
+                    alt="Business Growth Strategy"
+                    className="w-full h-[420px] object-cover"
+                />
+            </section>
+
 
             {/* ================= HERO ================= */}
             <section className="py-20">
                 <div className="max-w-4xl mx-auto text-center px-6">
                     <button
-                        onClick={scrollToForm}
+                        onClick={() => setShowFormModal(true)}
+
                         className="inline-block bg-blue-600 hover:bg-blue-700
              text-white px-5 py-2 rounded-full text-sm font-semibold
              animate-bounce"
@@ -194,11 +213,11 @@ const LeadPage = () => {
                     <div className="space-y-6">
 
                         {/* Info cards */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
                             {[
-                                { title: "Date", value: "1 Febraury 2025 - 15 Febraury 2025 " },
-                                { title: "Time", value: "10:00 AM to 06:00 PM " },
-                                { title: "Language", value: "Hindi/English" },
+                                { title: "Date", value: "1 February 2025 - 15 February 2025" },
+                                { title: "Time", value: "10:00 AM to 06:00 PM" },
+                                { title: "Language", value: "Hindi / English" },
                                 { title: "Duration", value: "30 Minutes" },
                             ].map((item) => (
                                 <div
@@ -218,18 +237,19 @@ const LeadPage = () => {
 
                         {/* CTA Button */}
                         <button
-                            onClick={scrollToForm}
+                            onClick={() => setShowFormModal(true)}
+
                             className="w-full sm:w-auto mt-4 px-10 py-4
-             bg-blue-600 hover:bg-blue-700
-             rounded-xl font-semibold text-white text-lg
-             shadow-lg shadow-blue-600/30
-             animate-bounce"
+        bg-blue-600 hover:bg-blue-700
+        rounded-xl font-semibold text-white text-lg
+        shadow-lg shadow-blue-600/30
+        animate-bounce"
                         >
                             Grab Your FREE Strategy Call
                         </button>
 
-
                     </div>
+
                 </div>
             </section>
 
@@ -300,7 +320,8 @@ const LeadPage = () => {
                     {/* CTA */}
                     <div className="mt-16 flex justify-center">
                         <button
-                            onClick={scrollToForm}
+                            onClick={() => setShowFormModal(true)}
+
                             className="w-full max-w-2xl bg-blue-600 hover:bg-blue-700
              text-white text-lg font-semibold py-4 rounded-xl
              shadow-lg shadow-blue-600/30
@@ -619,6 +640,128 @@ const LeadPage = () => {
                     </div>
                 </div>
             </section>
+
+
+
+            {showFormModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+
+                    {/* Modal Box */}
+                    <div className="relative bg-white text-black w-full max-w-lg rounded-2xl p-8 shadow-2xl animate-fadeIn">
+
+                        {/* Close Button */}
+                        <button
+                            onClick={() => setShowFormModal(false)}
+                            className="absolute top-4 right-4 text-gray-500 hover:text-black text-xl"
+                        >
+                            ✕
+                        </button>
+
+                        <h3 className="text-2xl font-semibold">
+                            Book Your Free Strategy Call
+                        </h3>
+                        <p className="text-gray-600 mt-1">
+                            We’ll contact you within 24 hours
+                        </p>
+
+                        {/* SAME FORM (COPY–PASTE) */}
+                        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+
+                            <input
+                                name="name"
+                                placeholder="Full Name *"
+                                value={form.name}
+                                onChange={handleChange}
+                                className="w-full border rounded-lg px-4 py-3"
+                            />
+
+                            <input
+                                name="business"
+                                placeholder="Business Name"
+                                value={form.business}
+                                onChange={handleChange}
+                                className="w-full border rounded-lg px-4 py-3"
+                            />
+
+                            <input
+                                name="email"
+                                placeholder="Email *"
+                                value={form.email}
+                                onChange={handleChange}
+                                className="w-full border rounded-lg px-4 py-3"
+                            />
+
+                            <input
+                                name="phone"
+                                placeholder="Phone *"
+                                maxLength={10}
+                                value={form.phone}
+                                onChange={(e) =>
+                                    setForm({
+                                        ...form,
+                                        phone: e.target.value.replace(/\D/g, ""),
+                                    })
+                                }
+                                className="w-full border rounded-lg px-4 py-3"
+                            />
+
+                            <select
+                                name="challenge"
+                                value={form.challenge}
+                                onChange={handleChange}
+                                className="w-full border rounded-lg px-4 py-3"
+                            >
+                                <option value="">Main Challenge</option>
+                                <option value="low-leads">Low Leads / Sales</option>
+                                <option value="website">Website / App Issues</option>
+                                <option value="marketing">Marketing Not Working</option>
+                                <option value="branding">Branding</option>
+                                <option value="automation">Automation / CRM</option>
+                                <option value="other">Other</option>
+                            </select>
+
+                            {form.challenge === "other" && (
+                                <input
+                                    name="otherChallenge"
+                                    placeholder="Describe your challenge"
+                                    value={form.otherChallenge}
+                                    onChange={handleChange}
+                                    className="w-full border rounded-lg px-4 py-3"
+                                />
+                            )}
+
+                            <select
+                                name="time"
+                                value={form.time}
+                                onChange={handleChange}
+                                className="w-full border rounded-lg px-4 py-3"
+                            >
+                                <option value="">Preferred Call Time</option>
+                                <option value="morning">Morning (10:00AM - 12:00PM)</option>
+                                <option value="afternoon">Afternoon (12:00PM - 03:00PM)</option>
+                                <option value="evening">Evening (03:00PM - 06:00PM)</option>
+                            </select>
+
+                            {error && (
+                                <p className="text-red-500 text-sm">{error}</p>
+                            )}
+
+                            <button
+                                type="submit"
+                                disabled={isSubmitting || hasSubmitted}
+                                className={`w-full font-semibold py-3 rounded-lg
+                    ${hasSubmitted
+                                        ? "bg-green-600 text-white"
+                                        : "bg-blue-600 hover:bg-blue-700 text-white animate-bounce"}
+                    `}
+                            >
+                                {hasSubmitted ? "✅ Submitted Successfully" : "Book Free Strategy Call"}
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+            )}
 
 
             {/* ================= FOOTER ================= */}
