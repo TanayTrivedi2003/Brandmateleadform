@@ -411,7 +411,7 @@ const LeadPage = () => {
                             { name: "Killer", logo: "/killer.jpeg" },
                             { name: "Smelita", logo: "/smelita.jpeg" },
                             { name: "Profinity", logo: "/Profinity.jpeg" },
-                            { name: "Medvanatge", logo: "/medvantage.jpeg" },
+                            { name: "Medvanatge", logo: "/medvantge.jpeg" },
                             { name: "Curry Cave", logo: "/CurryCave.jpeg" },
                             { name: "LeeCooper", logo: "/LeeCooper.jpeg" },
                             { name: "KyonKAt", logo: "/KyonKat.jpeg" },
@@ -432,8 +432,9 @@ const LeadPage = () => {
                                 <img
                                     src={client.logo}
                                     alt={client.name}
-                                    className="max-h-12 w-auto object-contain transition"
+                                    className="w-full h-full object-contain"
                                 />
+
                             </div>
                         ))}
                     </div>
