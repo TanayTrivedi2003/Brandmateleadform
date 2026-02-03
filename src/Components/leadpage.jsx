@@ -191,10 +191,7 @@ const LeadPage = () => {
                     </div>
 
                     {/* Contact Info - Right */}
-                    <div className="ml-auto text-sm text-gray-300 space-x-4 hidden md:block">
-                        <span>+91 7309180407</span>
-                        <span>+91 8081186611</span>
-                    </div>
+
 
                 </div>
             </header>
@@ -861,75 +858,7 @@ const LeadPage = () => {
                         </div>
 
                         {/* SOCIAL */}
-                        <div>
-                            <h4 className="text-white font-semibold mb-4">Connect With Us</h4>
 
-                            {/* Social Icons */}
-                            <div className="flex gap-4 text-xl justify-start mb-4">
-                                <a
-                                    href="https://www.linkedin.com/company/brandmate-digital"
-                                    target="_blank"
-                                    className="w-11 h-11 flex items-center justify-center rounded-full
-      bg-white/5 border border-white/10 text-white
-      hover:bg-[#0A66C2] hover:shadow-lg hover:shadow-[#0A66C2]/40
-      animate-bounce hover:scale-110 active:scale-95
-      transition-all duration-300"
-                                >
-                                    <FontAwesomeIcon icon={faLinkedinIn} />
-                                </a>
-
-                                <a
-                                    href="https://www.instagram.com/thebrandmate.digital/"
-                                    target="_blank"
-                                    className="w-11 h-11 flex items-center justify-center rounded-full
-      bg-white/5 border border-white/10 text-white
-      hover:bg-gradient-to-tr from-pink-500 via-purple-500 to-yellow-500
-      hover:shadow-lg hover:shadow-pink-500/40
-      animate-bounce [animation-delay:0.15s]
-      hover:scale-110 active:scale-95
-      transition-all duration-300"
-                                >
-                                    <FontAwesomeIcon icon={faInstagram} />
-                                </a>
-
-                                <a
-                                    href="https://www.facebook.com/profile.php?id=61578585032186"
-                                    target="_blank"
-                                    className="w-11 h-11 flex items-center justify-center rounded-full
-      bg-white/5 border border-white/10 text-white
-      hover:bg-[#1877F2] hover:shadow-lg hover:shadow-[#1877F2]/40
-      animate-bounce [animation-delay:0.3s]
-      hover:scale-110 active:scale-95
-      transition-all duration-300"
-                                >
-                                    <FontAwesomeIcon icon={faFacebookF} />
-                                </a>
-                            </div>
-
-                            {/* Contact Info */}
-                            <div className="space-y-1 text-sm text-gray-400">
-                                <a
-                                    href="tel:+917309180407"
-                                    className="block hover:text-blue-500 transition"
-                                >
-                                    📞 +91 73091 80407
-                                </a>
-
-                                <a
-                                    href="tel:+918081186611"
-                                    className="block hover:text-blue-500 transition"
-                                >
-                                    📞 +91 80811 86611
-                                </a>
-
-                                <a
-                                    href="mailto:info@brandmatedigital.com"
-                                    className="block hover:text-blue-500 transition"
-                                >
-                                    📧 info@brandmatedigital.com
-                                </a>
-                            </div>
-                        </div>
 
 
 
