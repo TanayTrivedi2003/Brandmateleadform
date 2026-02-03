@@ -707,15 +707,22 @@ const LeadPage = () => {
 
 
             {showFormModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+                <div className="fixed inset-0 z-50 flex items-center justify-center
+    bg-black/70 backdrop-blur-sm px-4">
 
                     {/* Modal Box */}
-                    <div className="relative bg-white text-black w-full max-w-lg rounded-2xl p-8 shadow-2xl animate-fadeIn">
+                    <div
+                        className="relative bg-white text-black w-full max-w-lg
+      max-h-[90vh] overflow-y-auto
+      rounded-2xl p-6 sm:p-8
+      shadow-2xl animate-fadeIn"
+                    >
 
                         {/* Close Button */}
                         <button
                             onClick={() => setShowFormModal(false)}
-                            className="absolute top-4 right-4 text-gray-500 hover:text-black text-xl"
+                            className="absolute top-4 right-4 z-10
+        text-gray-500 hover:text-black text-xl"
                         >
                             ✕
                         </button>
@@ -727,7 +734,6 @@ const LeadPage = () => {
                             We’ll contact you within 24 hours
                         </p>
 
-                        {/* SAME FORM (COPY–PASTE) */}
                         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
 
                             <input
@@ -760,10 +766,7 @@ const LeadPage = () => {
                                 maxLength={10}
                                 value={form.phone}
                                 onChange={(e) =>
-                                    setForm({
-                                        ...form,
-                                        phone: e.target.value.replace(/\D/g, ""),
-                                    })
+                                    setForm({ ...form, phone: e.target.value.replace(/\D/g, "") })
                                 }
                                 className="w-full border rounded-lg px-4 py-3"
                             />
@@ -812,11 +815,11 @@ const LeadPage = () => {
                             <button
                                 type="submit"
                                 disabled={isSubmitting || hasSubmitted}
-                                className={`w-full font-semibold py-3 rounded-lg
-                    ${hasSubmitted
+                                className={`w-full font-semibold py-3 rounded-lg transition-all
+          ${hasSubmitted
                                         ? "bg-green-600 text-white"
                                         : "bg-blue-600 hover:bg-blue-700 text-white animate-bounce"}
-                    `}
+          ${isSubmitting ? "opacity-80 cursor-not-allowed" : ""}`}
                             >
                                 {hasSubmitted ? "✅ Submitted Successfully" : "Book Free Strategy Call"}
                             </button>
@@ -825,6 +828,7 @@ const LeadPage = () => {
                     </div>
                 </div>
             )}
+
 
 
 
@@ -879,46 +883,48 @@ const LeadPage = () => {
                 </div>
             </footer>
 
-            <div
-                className={`fixed bottom-0 left-0 w-full z-50
+
+            {!showFormModal && (
+                <div
+                    className={`fixed bottom-0 left-0 w-full z-50
     transition-transform duration-500 ease-in-out
     ${showStickyBanner ? "translate-y-0" : "translate-y-full"}
   `}
-            >
-                <div className="max-w-7xl mx-auto px-4 pb-4">
-                    <div className="bg-white rounded-2xl shadow-2xl border border-black/10
+                >
+                    <div className="max-w-7xl mx-auto px-4 pb-4">
+                        <div className="bg-white rounded-2xl shadow-2xl border border-black/10
       flex flex-col md:flex-row items-center justify-between
       gap-4 px-6 py-4">
 
-                        {/* LEFT */}
-                        <div className="flex items-center gap-4">
-                            <div className="text-3xl font-extrabold text-black">
-                                FREE <span className="line-through text-red-500 ml-2">₹1999</span>
+                            {/* LEFT */}
+                            <div className="flex items-center gap-4">
+                                <div className="text-3xl font-extrabold text-black">
+                                    FREE <span className="line-through text-red-500 ml-2">₹1999</span>
+                                </div>
+                                <div className="text-sm text-gray-700">
+                                    Offer Ends in <span className="font-semibold text-black">
+                                        {formatTime(timeLeft)}
+                                    </span>
+                                </div>
                             </div>
-                            <div className="text-sm text-gray-700">
-                                Offer Ends in <span className="font-semibold text-black">
-                                    {formatTime(timeLeft)}
-                                </span>
-                            </div>
-                        </div>
 
-                        {/* RIGHT CTA */}
-                        <button
-                            onClick={() => setShowFormModal(true)}
-                            className="w-full md:w-auto px-8 py-3
+                            {/* RIGHT CTA */}
+                            <button
+                                onClick={() => setShowFormModal(true)}
+                                className="w-full md:w-auto px-8 py-3
           rounded-xl font-semibold text-black
           bg-gradient-to-r from- bg-blue-500 to-blue-600
           hover:scale-105 active:scale-95
           transition-transform"
-                        >
-                            Register Now
-                        </button>
+                            >
+                                Register Now
+                            </button>
 
+                        </div>
                     </div>
                 </div>
-            </div>
 
-
+            )}
 
 
         </div >
