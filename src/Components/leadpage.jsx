@@ -182,13 +182,14 @@ const LeadPage = () => {
         <div className="bg-[#0B0F1A] text-white min-h-screen">
 
             {/* ================= HEADER ================= */}
-            <header className="border-b border-white/10">
+            <header className="">
                 <div className="max-w-7xl mx-auto px-6 py-4 relative flex items-center">
 
                     {/* Logo - Center */}
-                    <div className="absolute left-1/2 -translate-x-1/2 mt-5">
+                    <div className="absolute left-1/2 -translate-x-1/2 mt-5 z-10 bg-[#0B0F1A] px-4">
                         <img src={logo} className="h-10" alt="Logo" />
                     </div>
+
 
                     {/* Contact Info - Right */}
 
