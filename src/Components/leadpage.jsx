@@ -127,6 +127,7 @@ const LeadPage = () => {
         setIsSubmitting(true);
         setHasSubmitted(true);
 
+
         try {
             await fetch(
                 "https://hook.us2.make.com/alawjdm16aqfn0wjcouj8rtsp91fy7fw",
@@ -147,6 +148,11 @@ const LeadPage = () => {
                 }
             );
 
+            // ✅ FIRE META PIXEL LEAD EVENT
+            if (window.fbq) {
+                window.fbq('track', 'Lead');
+            }
+
             setShowSuccess(true);
             setForm({
                 name: "",
@@ -157,7 +163,9 @@ const LeadPage = () => {
                 otherChallenge: "",
                 time: "",
             });
-        } catch {
+        }
+
+        catch {
             setHasSubmitted(false);
         } finally {
             setIsSubmitting(false);
