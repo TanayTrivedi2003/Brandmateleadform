@@ -48,7 +48,7 @@ const LeadPage = () => {
 
 
     // 7 Feb 2026, 11:59:59 PM (IST safe)
-    const END_DATE = new Date(2026, 1, 5, 23, 59, 59);
+    const END_DATE = new Date(2026, 1, 15, 23, 59, 59);
 
 
     useEffect(() => {
